@@ -59,11 +59,11 @@
 
               <div class="col-lg-4 menu-item">
                 <a  class="glightbox">
-                  <img src="foto_produk/<?= $produk["foto_produk"]; ?>" class="menu-img img-fluid" alt="" height="50px">
+                  <img src="foto_produk/<?= $produk["foto_produk"]; ?>" class="menu-img img-fluid img-rounded" alt="" height="50px">
                 </a>
                 <h4><?= $produk['nama_produk'] ?></h4>
                 <p class="ingredients">
-                  Ini adalah basreng asli sunda
+                <?= $produk['deskripsi_produk'] ?>
                 </p>
                 <p class="price">
                   Rp. <?= $produk['harga_produk'] ?>
