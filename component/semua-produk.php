@@ -3,44 +3,18 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Our Menu</h2>
-          <p>Check Our <span>Yummy Menu</span></p>
+          <h2>Produk Kami</h2>
+          <p>Lihat Prodk <span>Enak Kami</span></p>
         </div>
 
-        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
-
-          <li class="nav-item">
-            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
-              <h4>Starters</h4>
-            </a>
-          </li><!-- End tab nav item -->
-
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-              <h4>Breakfast</h4>
-            </a><!-- End tab nav item -->
-
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
-              <h4>Lunch</h4>
-            </a>
-          </li><!-- End tab nav item -->
-
-          <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-              <h4>Dinner</h4>
-            </a>
-          </li><!-- End tab nav item -->
-
-        </ul>
 
         <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
 
           <div class="tab-pane fade active show" id="menu-starters">
 
             <div class="tab-header text-center">
-              <p>Prodk</p>
-              <h3>Semua Prodk</h3>
+              <!-- <p>Prodk</p>
+              <h3>Semua Prodk</h3> -->
             </div>
 
             <div class="row gy-5">
@@ -58,16 +32,19 @@
                 ?>
 
               <div class="col-lg-4 menu-item">
-                <a  class="glightbox">
-                  <img src="foto_produk/<?= $produk["foto_produk"]; ?>" class="menu-img img-fluid img-rounded" alt="" height="50px">
+                <a href="">
+                      <!-- <a  class="glightbox"> -->
+                      <img src="foto_produk/<?= $produk["foto_produk"]; ?>" class="img-rounded" alt="" height="200px">
+                    <!-- </a> -->
+                    <br><br>
+                    <b><h4><?= $produk['nama_produk'] ?></h4></b>
+                    <p class="ingredients">
+                    <?= $produk['deskripsi_produk'] ?>
+                    </p>
+                    <p class="price">
+                      Rp. <?= $produk['harga_produk'] ?>
+                    </p>
                 </a>
-                <h4><?= $produk['nama_produk'] ?></h4>
-                <p class="ingredients">
-                <?= $produk['deskripsi_produk'] ?>
-                </p>
-                <p class="price">
-                  Rp. <?= $produk['harga_produk'] ?>
-                </p>
               </div><!-- Menu Item -->
 
             <?php } ?>
