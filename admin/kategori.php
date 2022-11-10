@@ -37,10 +37,4 @@ while($tiap = $ambil->fetch_assoc()){
   </tbody>
 </table>
 
-<a href="" class="btn btn-primary">Tambah Data</a>
-
-
-
-
-
-
+<a href="#" data-target="" class="btn btn-primary">Tambah Data</a>
