@@ -4,7 +4,7 @@
 
         <div class="section-header">
           <h2>Produk Kami</h2>
-          <p>Lihat Prodk <span>Enak Kami</span></p>
+          <p>Lihat Prodk <span> Enak Kami</span></p>
         </div>
 
 

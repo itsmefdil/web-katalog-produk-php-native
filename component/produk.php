@@ -32,16 +32,17 @@
                 ?>
 
               <div class="col-lg-4 menu-item">
-                <a  class="glightbox">
-                  <img src="foto_produk/<?= $produk["foto_produk"]; ?>" class="menu-img img-fluid img-rounded" alt="" height="50px">
+               <a href="">
+                      <img src="foto_produk/<?= $produk["foto_produk"]; ?>" class="menu-img img-fluid img-rounded" alt="" height="50px">
+                    
+                    <h4><?= $produk['nama_produk'] ?></h4>
+                    <p class="ingredients">
+                    <?= $produk['deskripsi_produk'] ?>
+                    </p>
+                    <p class="price">
+                      Rp. <?= $produk['harga_produk'] ?>
+                    </p>
                 </a>
-                <h4><?= $produk['nama_produk'] ?></h4>
-                <p class="ingredients">
-                <?= $produk['deskripsi_produk'] ?>
-                </p>
-                <p class="price">
-                  Rp. <?= $produk['harga_produk'] ?>
-                </p>
               </div><!-- Menu Item -->
 
             <?php } ?>

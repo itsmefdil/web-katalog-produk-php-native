@@ -6,7 +6,7 @@
 
         <div class="section-header">
           <!-- <h2>About Us</h2> -->
-          <p>Tentang<span>Kami</span></p>
+          <p>Tentang<span> Kami</span></p>
         </div>
 
         <div class="row gy-4">
@@ -18,7 +18,7 @@
             </div>
           </div>
 
-          <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="300">
 
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
