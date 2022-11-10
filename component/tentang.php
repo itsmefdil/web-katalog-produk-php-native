@@ -5,8 +5,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>About Us</h2>
-          <p>kontol <span>About Us</span></p>
+          <!-- <h2>About Us</h2> -->
+          <p>Tentang<span>Kami</span></p>
         </div>
 
         <div class="row gy-4">
