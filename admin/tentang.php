@@ -7,16 +7,18 @@ if (isset($_POST['update'])){
 	$logo_old   = $_POST['logo_old'];
 	$tmp = $_FILES['logo']['tmp_name'];
 	$logo_save = rand().$_FILES['logo']['name'];
-	if ($logo != $logo_old) {
+	if ($logo != '') {
 		unlink('uploads/'.$logo_old);
 		move_uploaded_file($tmp, 'uploads/'.$logo_save);
+	}else{
+		$logo_save = $logo_old;
 	}
 	$sql = "UPDATE tentang SET nama_toko = '$nama',deskripsi = '$deskripsi',logo = '$logo_save' WHERE id='1'";
 	$query = mysqli_query($koneksi,$sql);
 	if($query){
 		echo '<script>alert("Data Berhasil Diubah");window.location.href="index.php?halaman=tentang"</script>';
 	}else{
-		echo 'Gagal';
+		mysqli_error($koneksi);
 	}
 } else {
 	$sql = "SELECT * FROM tentang WHERE id='1'";

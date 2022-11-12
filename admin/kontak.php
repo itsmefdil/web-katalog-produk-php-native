@@ -9,9 +9,12 @@ if (isset($_POST['update'])){
 	$logo_old   = $_POST['logo_old'];
 	$tmp = $_FILES['logo']['tmp_name'];
 	$logo_save = rand().$_FILES['logo']['name'];
-	if ($logo != $logo_old) {
+	//upload logo
+	if ($logo != '') {
 		unlink('uploads/'.$logo_old);
 		move_uploaded_file($tmp, 'uploads/'.$logo_save);
+	}else{
+		$logo_save = $logo_old;
 	}
 	$sql = "UPDATE kontak SET email = '$email',telpon = '$telpon',waktu = '$waktu', maps = '$maps',logo = '$logo_save' WHERE id='1'";
 	$query = mysqli_query($koneksi,$sql);
