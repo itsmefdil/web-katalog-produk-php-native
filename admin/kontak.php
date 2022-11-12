@@ -74,7 +74,7 @@ if (isset($_POST['update'])){
 		<label for="">Maps Url</label>
 		</div>
 		<div class="col-sm-11">
-		<textarea class="form-control" name="maps" id="" cols="10" rows="5"><?= $kontak['maps']?></textarea>
+		<textarea class="form-control"  name="maps" id="" cols="10" rows="5"><?= $kontak['maps']?></textarea>
 		</div>
 	</div>
 </div>
@@ -85,6 +85,8 @@ if (isset($_POST['update'])){
 		<label for="">Logo</label>
 		</div>
 		<div class="col-sm-11">
+		<img src="uploads/<?= $kontak['logo']?>" alt="" width="100px">
+			<br><br>
 		<input type="file" class="form-control" name="logo" value="">
 		<input type="hidden" class="form-control" name="logo_old" value="<?= $kontak['logo']?>">
 		</div>

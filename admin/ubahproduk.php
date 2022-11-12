@@ -75,9 +75,7 @@ if(isset($_POST['ubah'])){
       </div>
       <div class="form-group">
         <label for="">Deskripsi</label>
-        <textarea name="deskripsi" class="form-control" rows="10">
-          <?= $pecah['deskripsi_produk']; ?>
-        </textarea>
+        <textarea name="deskripsi" id="summernote" class="form-control" rows="10"><?= $pecah['deskripsi_produk']; ?></textarea>
       </div>
       <div class="form-group">
         <label for="">Stok</label>

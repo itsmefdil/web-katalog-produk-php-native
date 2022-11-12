@@ -50,7 +50,8 @@ if (isset($_POST['update'])){
 		<label for="">Deskripsi</label>
 		</div>
 		<div class="col-sm-11">
-		<textarea name="deskripsi" class="form-control" id="" cols="30" rows="10"><?= $tentang['deskripsi']?></textarea>
+		<textarea name="deskripsi" class="form-control" id="summernote" cols="30" rows="10"><?= $tentang['deskripsi']?></textarea>
+
 		</div>
 	</div>
 </div>
@@ -62,6 +63,8 @@ if (isset($_POST['update'])){
 		<label for="">Foto</label>
 		</div>
 		<div class="col-sm-11">
+			<img src="uploads/<?= $tentang['foto']?>" alt="" width="100px">
+			<br><br>
 		<input type="file" class="form-control" name="logo" value="">
 		<input type="hidden" class="form-control" name="logo_old" value="<?= $tentang['foto']?>">
 		</div>

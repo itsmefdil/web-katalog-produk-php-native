@@ -40,22 +40,19 @@ while($tiap = $ambil->fetch_assoc()){
 				</div>
 				<div class="form-group">
 					<label>Deskripsi</label>
-					<textarea type="text" name="deskripsi" class="form-control" rows="6"></textarea>
+					<textarea type="text" id="summernote" name="deskripsi" class="form-control" rows="6"></textarea>
 				</div>
 				<div class="form-group">
 					<label>Foto</label>
 					<div class="letak-input" style="margin-bottom: 5px;">
 						<input type="file" name="foto[]" class="form-control">
 					</div>
-					<span class="btn btn-primary btn-tambah">
-						<i class="fa fa-plus"></i>
-					</span>
 				</div>
 				<div class="form-group">
 					<label>Stok</label>
 					<input type="number" name="stok" class="form-control">
 				</div>
-			<button name="submit" class="btn btn-primary">Simpan</button>
+			<button name="submit" name="submit" class="btn btn-primary">Simpan</button>
 		</form>
 	</div>
 </div>
@@ -65,30 +62,23 @@ if(isset($_POST["submit"])){
 	
 	$namanamafoto = $_FILES["foto"]["name"];
 	$lokasilokasifoto = $_FILES["foto"]["tmp_name"];
-	move_uploaded_file($lokasilokasifoto[0], "../foto_produk/".$namanamafoto[0]);
+	move_uploaded_file($lokasilokasifoto[0], "../foto_produk/".$namanamafoto);
 
-	// menyimpan ke database
-	$result = $koneksi->query("INSERT INTO produk VALUES('', '$_POST[id_kategori]', '$_POST[nama]', '$_POST[harga]', '$_POST[berat]', '$namanamafoto[0]', '$_POST[deskripsi]', '$_POST[stok]')");
+	$nama_produk = $_POST["nama"];
+	$harga_produk = $_POST["harga"];
+	$berat_produk = $_POST["berat"];
+	$deskripsi_produk = $_POST["deskripsi"];
+	$stok_produk = $_POST["stok"];
+	$id_kategori = $_POST["id_kategori"];
 
-	// Mendapatkan id_produk barusan
-	$id_produk_barusan = $koneksi->insert_id;
-
-	// Membuat perulangan untuk memasukkan nama nama foto ke tabel
-	foreach($namanamafoto as $key => $tiap_nama){
-		$tiap_lokasi = $lokasilokasifoto[$key];
-		move_uploaded_file($tiap_lokasi, "../foto_produk/".$tiap_nama);
-
-		// Memasukkan nama nama foto ke tabel produk_foto sesuai id_produk barusan
-		$hasil = $koneksi->query("INSERT INTO 	produk_foto(id_produk, nama_produk_foto) VALUES('$id_produk_barusan','$tiap_nama')");
+	$koneksi->query("INSERT INTO produk (nama_produk, harga_produk, berat_produk, deskripsi_produk, stok_produk, id_kategori, foto_produk) VALUES ('$nama_produk', '$harga_produk', '$berat_produk', '$deskripsi_produk', '$stok_produk', '$id_kategori', '$namanamafoto')");
+	if ($koneksi->affected_rows > 0) {
+		echo "<script>alert('Data berhasil disimpan');</script>";
+		echo "<script>location='index.php?halaman=produk';</script>";
+	}else {
+		echo "<script>alert('Data gagal disimpan');</script>";
+		echo "<script>location='index.php?halaman=produk';</script>";
 	}
-
-	if($result AND $hasil){
-		echo "<script>alert('Data berhasil ditambahkan');window.location='index.php?halaman=produk';</script>";
-	}
-
-	// echo "<pre>";
-	// print_r($_FILES['foto']);
-	// echo "</pre>";
 }
 ?>
 

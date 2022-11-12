@@ -16,9 +16,10 @@ while($tiap = $ambilfoto->fetch_assoc()){
 // echo "</pre>";
 
 ?>
-
-
-<table class="table">
+<br><br>
+<img src="../foto_produk/<?= $detailproduk['foto_produk']; ?>" class="img-thumbnail" width="10%" alt="">
+<br><br>
+<table class="table" class="table" border="1">
   <tr>
     <th>Produk</th>
     <td><?= $detailproduk['nama_produk']; ?></td>
@@ -45,26 +46,10 @@ while($tiap = $ambilfoto->fetch_assoc()){
   </tr>
 </table>
 
-<div class="row">
-  <?php foreach($fotoproduk as $key => $value): ?>
-  <div class="col-md-4 text-center">
-    <img src="../foto_produk/<?= $value['nama_produk_foto']; ?>" alt="" class="img-responsive"><br>
-    <a href="index.php?halaman=hapusfotoproduk&idfoto=<?= $value['id_produk_foto']; ?>&idproduk=<?= $id_produk; ?>" class="btn btn-danger btn-sm">hapus</a>
-  </div>
-  <?php endforeach; ?>
-</div><br>
+<a href="index.php?halaman=produk" class="btn btn-primary">Kembali</a>
 
-<div class="row">
-  <div class="col-md-4">
-    <form method="post" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="">File Foto</label>
-        <input type="file" name="produk_foto" class="form-control" required>
-      </div>
-      <button class="btn btn-primary" name="simpan" value="simpan">Simpan</button>
-    </form>
-  </div>
-</div>
+
+
 
 <?php
 if(isset($_POST['simpan'])){
