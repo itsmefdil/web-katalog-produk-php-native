@@ -45,7 +45,7 @@ while($tiap = $ambil->fetch_assoc()){
 				<div class="form-group">
 					<label>Foto</label>
 					<div class="letak-input" style="margin-bottom: 5px;">
-						<input type="file" name="foto[]" class="form-control">
+						<input type="file" name="foto" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">
@@ -60,9 +60,9 @@ while($tiap = $ambil->fetch_assoc()){
 <?php  
 if(isset($_POST["submit"])){
 	
-	$namanamafoto = $_FILES["foto"]["name"];
-	$lokasilokasifoto = $_FILES["foto"]["tmp_name"];
-	move_uploaded_file($lokasilokasifoto[0], "../foto_produk/".$namanamafoto);
+	$foto = rand(0,100000).$_FILES["foto"]["name"];
+	$tmp = $_FILES["foto"]["tmp_name"];
+	move_uploaded_file($tmp, "../foto_produk/".$foto);
 
 	$nama_produk = $_POST["nama"];
 	$harga_produk = $_POST["harga"];
@@ -71,7 +71,7 @@ if(isset($_POST["submit"])){
 	$stok_produk = $_POST["stok"];
 	$id_kategori = $_POST["id_kategori"];
 
-	$koneksi->query("INSERT INTO produk (nama_produk, harga_produk, berat_produk, deskripsi_produk, stok_produk, id_kategori, foto_produk) VALUES ('$nama_produk', '$harga_produk', '$berat_produk', '$deskripsi_produk', '$stok_produk', '$id_kategori', '$namanamafoto')");
+	$koneksi->query("INSERT INTO produk (nama_produk, harga_produk, berat_produk, deskripsi_produk, stok_produk, id_kategori, foto_produk) VALUES ('$nama_produk', '$harga_produk', '$berat_produk', '$deskripsi_produk', '$stok_produk', '$id_kategori', '$foto')");
 	if ($koneksi->affected_rows > 0) {
 		echo "<script>alert('Data berhasil disimpan');</script>";
 		echo "<script>location='index.php?halaman=produk';</script>";
@@ -82,14 +82,6 @@ if(isset($_POST["submit"])){
 }
 ?>
 
-
-<script>
-	$(document).ready(function(){
-		$(".btn-tambah").on("click", function(){
-			$(".letak-input").append("<input type='file' name='foto[]' class='form-control'>");
-		})
-	})
-</script>
 
 
 

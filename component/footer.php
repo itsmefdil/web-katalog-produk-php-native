@@ -1,15 +1,27 @@
 <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
+<?php 
+$sql = "SELECT * FROM kontak WHERE id='1'";
+$result = $koneksi->query($sql);
+foreach ($result as $kontak) {
+  $email = $kontak['email'];
+  $alamat = $kontak['alamat'];
+  $telpon = $kontak['telpon'];
+  $waktu = $kontak['waktu'];
+  $maps = $kontak['maps'];
+}
+
+?>
+
+<footer id="footer" class="footer">
 
     <div class="container">
       <div class="row gy-3">
         <div class="col-lg-4 col-md-6 d-flex">
           <i class="bi bi-geo-alt icon"></i>
           <div>
-            <h4>Address</h4>
+            <h4>Alamat</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022 - US<br>
+              <?= $alamat?>
             </p>
           </div>
 
@@ -20,8 +32,8 @@
           <div>
             <h4>Pemesanan</h4>
             <p>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              <strong>Telpon:</strong> <?= $telpon?><br>
+              <strong>Email:</strong> <?= $email?><br>
             </p>
           </div>
         </div>
@@ -29,10 +41,9 @@
         <div class="col-lg-4 col-md-6 footer-links d-flex">
           <i class="bi bi-clock icon"></i>
           <div>
-            <h4>Opening Hours</h4>
+            <h4>Jam Buka</h4>
             <p>
-              <strong>Mon-Sat: 11AM</strong> - 23PM<br>
-              Sunday: Closed
+              <?= $waktu?>
             </p>
           </div>
         </div>

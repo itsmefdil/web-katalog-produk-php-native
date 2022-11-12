@@ -4,6 +4,7 @@ if (isset($_POST['update'])){
 	$email = $_POST['email'];
 	$telpon = $_POST['telpon'];
 	$waktu = $_POST['waktu'];
+	$alamat = $_POST['alamat'];
 	$maps = $_POST['maps'];
 	$logo = $_FILES['logo']['name'];
 	$logo_old   = $_POST['logo_old'];
@@ -16,7 +17,7 @@ if (isset($_POST['update'])){
 	}else{
 		$logo_save = $logo_old;
 	}
-	$sql = "UPDATE kontak SET email = '$email',telpon = '$telpon',waktu = '$waktu', maps = '$maps',logo = '$logo_save' WHERE id='1'";
+	$sql = "UPDATE kontak SET email = '$email',telpon = '$telpon',waktu = '$waktu',alamat = '$alamat', maps = '$maps',logo = '$logo_save' WHERE id='1'";
 	$query = mysqli_query($koneksi,$sql);
 	if($query){
 		echo '<script>alert("Data Berhasil Diubah");window.location.href="index.php?halaman=kontak"</script>';
@@ -64,6 +65,17 @@ if (isset($_POST['update'])){
 		</div>
 		<div class="col-sm-11">
 		<input type="text" class="form-control" name="waktu" value="<?= $kontak['waktu']?>">
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="row">
+		<div class="col-sm-1">
+		<label for="">Alamat</label>
+		</div>
+		<div class="col-sm-11">
+		<input type="text" class="form-control" name="alamat" value="<?= $kontak['alamat']?>">
 		</div>
 	</div>
 </div>

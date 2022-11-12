@@ -30,7 +30,7 @@ if(!isset($_SESSION['admin'])){
             rel='stylesheet'
             type='text/css'/>
         <!-- JQUERY SCRIPTS -->
-        <script src="assets/js/jquery-1.10.2.js"></script>
+        <!-- <script src="assets/js/jquery-1.10.2.js"></script> -->
         <!-- summernote -->
         <link href="assets/summernote/summernote.css" rel="stylesheet">
         <script src="assets/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
@@ -69,7 +69,7 @@ if(!isset($_SESSION['admin'])){
 		float: right;
 		font-size: 16px;">
                 &nbsp;
-                <a href="index.php?halaman=logout" class="btn btn-danger square-btn-adjust">Logout</a>
+                <a href="index.php?halaman=logout"  onclick="return confirm('Apakah anda ingin keluar dari halaman admin ?');" class="btn btn-danger square-btn-adjust">Logout</a>
             </div>
         </nav>
 
@@ -103,7 +103,7 @@ if(!isset($_SESSION['admin'])){
                             <i class="fa fa-file"></i>Kontak</a>
                     </li>
                     <li>
-                        <a href="index.php?halaman=logout">
+                        <a href="index.php?halaman=logout" onclick="return confirm('Apakah anda ingin keluar dari halaman admin ?');">
                             <i class="fa fa-sign-out"></i>Logout</a>
                     </li>
                 </ul>
@@ -182,7 +182,7 @@ if(!isset($_SESSION['admin'])){
     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
     <script src="assets/js/morris/morris.js"></script>
     <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
+    <!-- <script src="assets/js/custom.js"></script> -->
     <!-- summernote -->
     <script src="assets/summernote/summernote.js"></script>
     <script>
@@ -194,6 +194,80 @@ if(!isset($_SESSION['admin'])){
 		$(document).ready(function () {
 			$('#datatables').DataTable();
 		});
+	</script>
+
+	<script>
+
+/*=============================================================
+    Authour URI: www.binarycart.com
+    Version: 1.1
+    License: MIT
+    
+    http://opensource.org/licenses/MIT
+
+    100% To use For Personal And Commercial Use.
+   
+    ========================================================  */
+
+(function ($) {
+    "use strict";
+    var mainApp = {
+
+        main_fun: function () {
+            /*====================================
+            METIS MENU 
+            ======================================*/
+            $('#main-menu').metisMenu();
+
+            /*====================================
+              LOAD APPROPRIATE MENU BAR
+           ======================================*/
+            $(window).bind("load resize", function () {
+                if ($(this).width() < 768) {
+                    $('div.sidebar-collapse').addClass('collapse')
+                } else {
+                    $('div.sidebar-collapse').removeClass('collapse')
+                }
+            });
+
+    
+        //   MORRIS DONUT CHART
+
+            Morris.Donut({
+                element: 'morris-donut-chart',
+                data: [
+				<?php 
+					$ambil = $koneksi->query("SELECT * FROM kategori");
+					while($pecah = $ambil->fetch_assoc()){
+						$jumlah = $koneksi->query("SELECT * FROM produk WHERE id_kategori = '".$pecah['id_kategori']."'")->num_rows;
+						echo "
+						{label: '".$pecah['nama_kategori']."', 
+						 value: ".$jumlah."},";
+					}
+					
+				?>	
+			
+			],
+                resize: true
+            });
+
+     
+        },
+
+        initialization: function () {
+            mainApp.main_fun();
+
+        }
+
+    }
+    // Initializing ///
+
+    $(document).ready(function () {
+        mainApp.main_fun();
+    });
+
+}(jQuery));
+
 	</script>
 </body>
 </html>

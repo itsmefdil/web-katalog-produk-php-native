@@ -34,7 +34,7 @@
 			<td>Rp. <?= number_format($pecah["harga_produk"]); ?>,-</td>
 			<td><?= $pecah["berat_produk"]; ?></td>
 			<td>
-				<img src="../foto_produk/<?= $pecah["foto_produk"]; ?>" width="100">
+				<img src="../foto_produk/<?= $pecah['foto_produk']; ?>" width="100">
 			</td>
 			<td><?= $pecah['stok_produk']; ?></td>
 			<td>
