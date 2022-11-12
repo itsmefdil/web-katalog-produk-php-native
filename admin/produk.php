@@ -1,6 +1,15 @@
-<h2>Data Produk</h2>
 
-<table class="table table-bordered">
+<div class="row">
+	<div class="col-sm-6" >
+		<h2>Data Produk</h2>
+	</div>
+	<div class="col-sm-6" align="right">
+		<h2><a href="index.php?halaman=tambahproduk" class="btn btn-primary"><i class="fa fa-plus"> </i> Tambah Data Produk</a></h2>
+	</div>
+</div>
+<hr>
+<br><br>
+<table class="table table" id="datatables">
 	<thead>
 		<tr>
 		<th>No</th>
@@ -40,4 +49,3 @@
 	</tbody>
 </table>
 
-<a href="index.php?halaman=tambahproduk" class="btn btn-primary">Tambah Data Produk</a>

@@ -32,12 +32,12 @@
                 ?>
 
               <div class="col-lg-4 menu-item">
-               <a href="">
+               <a href="?page=detail&id=<?= $produk['id_produk']?>">
                       <img src="foto_produk/<?= $produk["foto_produk"]; ?>" class="menu-img img-fluid img-rounded" alt="" height="50px">
                     
                     <h4><?= $produk['nama_produk'] ?></h4>
                     <p class="ingredients">
-                    <?= $produk['deskripsi_produk'] ?>
+                    <?php $produk['deskripsi_produk'] ?>
                     </p>
                     <p class="price">
                       Rp. <?= $produk['harga_produk'] ?>

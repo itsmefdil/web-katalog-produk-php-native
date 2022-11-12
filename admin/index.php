@@ -38,6 +38,10 @@ if(!isset($_SESSION['admin'])){
             src="assets/popper.min.js"
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
             crossorigin="anonymous"></script>
+
+		<!-- data tables  -->
+		<link rel="stylesheet" type="text/css" href="assets/datatables/jquery.dataTables.min.css"/>
+		<script type="text/javascript" src="assets/datatables/jquery.dataTables.min.js"></script>
     </head>
     <body></body>
 
@@ -186,5 +190,10 @@ if(!isset($_SESSION['admin'])){
             $('#summernote').summernote();
         });
     </script>
+	<script>
+		$(document).ready(function () {
+			$('#datatables').DataTable();
+		});
+	</script>
 </body>
 </html>

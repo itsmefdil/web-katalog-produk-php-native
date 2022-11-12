@@ -17,7 +17,7 @@ while($tiap = $ambilfoto->fetch_assoc()){
 
 ?>
 <br><br>
-<img src="../foto_produk/<?= $detailproduk['foto_produk']; ?>" class="img-thumbnail" width="10%" alt="">
+<center><img src="../foto_produk/<?= $detailproduk['foto_produk']; ?>" class="img-thumbnail" width="40%" alt=""></center>
 <br><br>
 <table class="table" class="table" border="1">
   <tr>

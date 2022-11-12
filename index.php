@@ -23,6 +23,10 @@ if ($_GET['page'] == 'tentang') {
 
       include('component/kontak.php');
 
+  } elseif ($_GET['page'] == 'detail') {
+
+      include('component/detail-produk.php');
+
   } else {
 
       include('component/home.php');
