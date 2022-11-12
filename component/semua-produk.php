@@ -19,7 +19,7 @@
 
             <div class="row gy-5">
               <?php
-                include('config/koneksi.php');
+            
                 $no = 1;
                 $query = mysqli_query($koneksi, 'SELECT * FROM produk');                                
                 

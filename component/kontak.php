@@ -1,3 +1,10 @@
+<?php
+
+$sql = "SELECT * FROM kontak WHERE id='1'";
+$result = $koneksi->query($sql);
+foreach ($result as $kontak) {
+
+?>
 
 <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -9,7 +16,7 @@
         </div>
 
         <div class="mb-3">
-          <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.054803796427!2d110.35519651376848!3d-7.784014494390312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a583d1d2303bb%3A0x3f6cb15eeaa2fe2f!2sUniversitas%20Janabadra!5e0!3m2!1sid!2sid!4v1661159226068!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe style="border:0; width: 100%; height: 450px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.054803796427!2d110.35519651376848!3d-7.784014494390312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a583d1d2303bb%3A0x3f6cb15eeaa2fe2f!2sUniversitas%20Janabadra!5e0!3m2!1sid!2sid!4v1661159226068!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div><!-- End Google Maps -->
 
         <div class="row gy-4">
@@ -19,7 +26,7 @@
               <i class="icon bi bi-map flex-shrink-0"></i>
               <div>
                 <h3>Alamat Kami</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p><?= $kontak['alamat']?></p>
               </div>
             </div>
           </div><!-- End Info Item -->
@@ -29,7 +36,7 @@
               <i class="icon bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Kami</h3>
-                <p>contact@example.com</p>
+                <p><?= $kontak['email']?></p>
               </div>
             </div>
           </div><!-- End Info Item -->
@@ -39,7 +46,7 @@
               <i class="icon bi bi-telephone flex-shrink-0"></i>
               <div>
                 <h3>Whatsapp Kami</h3>
-                <p>+1 5589 55488 55</p>
+                <p><?= $kontak['telpon']?></p>
               </div>
             </div>
           </div><!-- End Info Item -->
@@ -49,9 +56,8 @@
               <i class="icon bi bi-share flex-shrink-0"></i>
               <div>
                 <h3>Jam Buka</h3>
-                <div><strong>Mon-Sat:</strong> 11AM - 23PM;
-                  <strong>Sunday:</strong> Closed
-                </div>
+                <?= $kontak['waktu']?>
+               
               </div>
             </div>
           </div><!-- End Info Item -->
@@ -61,3 +67,5 @@
 
       </div>
     </section><!-- End Contact Section -->
+
+    <?php }?>

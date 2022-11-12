@@ -5,6 +5,8 @@ include('component/navbar.php');
 <br>
 <?php
 
+include('config/koneksi.php');
+
 if ($_GET['page'] == 'tentang') {
     include('component/tentang.php');
 
