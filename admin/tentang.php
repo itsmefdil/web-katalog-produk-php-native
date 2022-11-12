@@ -1,24 +1,25 @@
 <?php
 if (isset($_POST['update'])){
 	$id = 1;
-	$nama = $_POST['nama_toko'];
+	$nama_toko = $_POST['nama_toko'];
 	$deskripsi = $_POST['deskripsi'];
 	$logo = $_FILES['logo']['name'];
 	$logo_old   = $_POST['logo_old'];
 	$tmp = $_FILES['logo']['tmp_name'];
 	$logo_save = rand().$_FILES['logo']['name'];
+	//upload logo
 	if ($logo != '') {
 		unlink('uploads/'.$logo_old);
 		move_uploaded_file($tmp, 'uploads/'.$logo_save);
 	}else{
 		$logo_save = $logo_old;
 	}
-	$sql = "UPDATE tentang SET nama_toko = '$nama',deskripsi = '$deskripsi',logo = '$logo_save' WHERE id='1'";
+	$sql = "UPDATE tentang SET nama_toko = '$nama_toko',deskripsi = '$deskripsi',foto = '$logo_save' WHERE id='1'";
 	$query = mysqli_query($koneksi,$sql);
 	if($query){
 		echo '<script>alert("Data Berhasil Diubah");window.location.href="index.php?halaman=tentang"</script>';
 	}else{
-		mysqli_error($koneksi);
+		echo 'Gagal';
 	}
 } else {
 	$sql = "SELECT * FROM tentang WHERE id='1'";
@@ -26,10 +27,11 @@ if (isset($_POST['update'])){
 	foreach ($result as $tentang) {
 
 }
-?>
-<h2>TENTANG <small><?= $tentang['nama_toko']?></small></h2> 
-<hr>
 
+?>
+
+<h2>Tentang <small><?= $tentang['nama_toko']?></small></h2>
+<hr>
 <form action="" method="post" enctype="multipart/form-data">
 <div class="form-group">
 	<div class="row">
@@ -48,10 +50,11 @@ if (isset($_POST['update'])){
 		<label for="">Deskripsi</label>
 		</div>
 		<div class="col-sm-11">
-		<textarea class="form-control" name="deskripsi" id="" cols="10" rows="10"><?= $tentang['deskripsi']?></textarea>
+		<textarea name="deskripsi" class="form-control" id="" cols="30" rows="10"><?= $tentang['deskripsi']?></textarea>
 		</div>
 	</div>
 </div>
+
 
 <div class="form-group">
 	<div class="row">
@@ -77,3 +80,12 @@ if (isset($_POST['update'])){
 </div>
 </form>
 <?php }?>
+
+<?php
+
+
+
+
+
+
+?>
