@@ -15,6 +15,17 @@ foreach ($ambil as $pecah) {
     $stok_produk = $pecah['stok_produk'];
     $id_kategori = $pecah['id_kategori'];
 }
+
+$kontak = "SELECT * FROM kontak where id = 1";
+$ambil_kontak = $koneksi->query($kontak);
+foreach ($ambil_kontak as $pecah_kontak) {
+    $telpon = $pecah_kontak['telpon'];
+    $email = $pecah_kontak['email'];
+    $alamat = $pecah_kontak['alamat'];
+}
+
+$pesan = "Saya ingin membeli produk : *".$nama_produk."* ,Apakah masih tersedia ?"
+
 ?>
 
 
@@ -45,7 +56,7 @@ foreach ($ambil as $pecah) {
                 <p>Berat : <?= $berat_produk?> gr</p>
                 <p>Stok : <?= $stok_produk?></p>
                 <hr>
-                <a href="index.php?halaman=keranjang&id=<?= $id_produk?>" class="btn btn-success"><i class="fa-brands fa-whatsapp"></i> PESAN SEKARANG</a>
+                <a href="https://api.whatsapp.com/send/?phone=<?= $telpon ?>&text=<?= $pesan ?>" class="btn btn-success" target="_blank"><i class="fa-brands fa-whatsapp"></i> PESAN SEKARANG</a>
             </div>
           </div>
 
