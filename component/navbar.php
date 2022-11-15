@@ -1,8 +1,9 @@
 <?php 
 $sql = "SELECT * FROM tentang WHERE id='1'";
 $result = $koneksi->query($sql);
-foreach ($result as $kontak) {
-  $nama = $kontak['nama_toko'];
+foreach ($result as $tentang) {
+  $nama = $tentang['nama_toko'];
+  $foto1 = $tentang['foto'];
 }
 
 ?>

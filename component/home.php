@@ -8,7 +8,7 @@
          
         </div>
         <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-          <img src="assets/img/seblak.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="400">
+          <img src="admin/uploads/<?= $foto1?>" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="400">
         </div>
       </div>
     </div>
