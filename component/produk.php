@@ -40,7 +40,7 @@
                     <?php $produk['deskripsi_produk'] ?>
                     </p>
                     <p class="price">
-                      Rp. <?= $produk['harga_produk'] ?>
+                      Rp. <?= number_format($produk['harga_produk']) ?>
                     </p>
                 </a>
               </div><!-- Menu Item -->
