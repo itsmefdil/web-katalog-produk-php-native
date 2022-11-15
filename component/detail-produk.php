@@ -44,7 +44,7 @@ $pesan = "Saya ingin membeli produk : *".$nama_produk."* ,Apakah masih tersedia 
         
           <div class="row">
             <div class="col-sm-6">
-                <img src="foto_produk/<?= $foto_produk?>" class="img-thumbnail" alt="">
+                <img src="foto_produk/<?= $foto_produk?>" class="img-thumbnail" alt="" width="100%">
             </div>
             <div class="col-sm-6">
                 <h1><?= $nama_produk?></h1>
